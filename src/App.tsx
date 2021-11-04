@@ -10,13 +10,17 @@ import frontend from "./components/images/icons/frontend.png";
 import ScrollReaveal from "scrollreveal";
 import "./styles.css";
 
+import dataCarousel from "./DataProjects";
+
 function App() {
   //  const heightWindow = window.screen.height
   //const widthWindow = window.screen.width
+  console.log(dataCarousel);
+
   useEffect(() => {
     const config = {
       origin: "down",
-      duration: 6000,
+      duration: 4000,
       delay: 750,
       distance: "0px",
       scale: 1,
@@ -200,177 +204,35 @@ function App() {
               <h3 style={{ color: "#000", paddingBlock: 20 }}>Mis trabajos</h3>
               <div className="container-fluid content-row">
                 <div className="row">
-                  <div className="col-sm-4 p-3">
-                    <div className="card h-100 ">
-                      <Carousel>
-                        <Carousel.Item>
-                          <img
-                            className="d-block w-100"
-                            src="holder.js/800x400?text=First slide&bg=373940"
-                            alt="First slide"
-                          />
-                          <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>
-                              Nulla vitae elit libero, a pharetra augue mollis
-                              interdum.
-                            </p>
-                          </Carousel.Caption>
-                        </Carousel.Item>
-                      </Carousel>
-                      <div className="card-body">
-                        <h5 className="card-title">Play Explora</h5>
-                        <p className="card-text">
-                          Juego de exploración y preguntas el cúal se desarrolló
-                          tanto la aplicación móvil, como la administración en
-                          la web.
-                        </p>
+                  {dataCarousel.map((item: any, index: number) => {
+                    return (
+                      <div className="col-sm-4 p-3" key={index}>
+                        <div className="card h-100 ">
+                          <Carousel>
+                            {item.images.map((ima: any, i: number) => {
+                              return (
+                                <Carousel.Item>
+                                  <img
+                                    className="d-block w-100"
+                                    src={ima.image}
+                                    alt={`${ima.title}`}
+                                  />
+                                  <Carousel.Caption>
+                                    <h3>{ima.title}</h3>
+                                  </Carousel.Caption>
+                                </Carousel.Item>
+                              );
+                            })}
+                          </Carousel>
+                          <div className="card-body">
+                            <h5 className="card-title">{item.title}</h5>
+                            <p className="card-text">{item.description}</p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="col-sm-4 p-3">
-                    <div className="card h-100 ">
-                      <Carousel>
-                        <Carousel.Item>
-                          <img
-                            className="d-block w-100"
-                            src="holder.js/800x400?text=First slide&bg=373940"
-                            alt="First slide"
-                          />
-                          <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>
-                              Nulla vitae elit libero, a pharetra augue mollis
-                              interdum.
-                            </p>
-                          </Carousel.Caption>
-                        </Carousel.Item>
-                      </Carousel>
-                      <div className="card-body">
-                        <h5 className="card-title">SyntheticApp</h5>
-                        <p className="card-text">
-                          Es una aplicación para la ubicación y reserva de
-                          canchas sinteticas en el municipio de Fusagasugá, se
-                          desarrollo para móviles Android.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-4 p-3">
-                    <div className="card h-100 ">
-                      <Carousel>
-                        <Carousel.Item>
-                          <img
-                            className="d-block w-100"
-                            src="holder.js/800x400?text=First slide&bg=373940"
-                            alt="First slide"
-                          />
-                          <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>
-                              Nulla vitae elit libero, a pharetra augue mollis
-                              interdum.
-                            </p>
-                          </Carousel.Caption>
-                        </Carousel.Item>
-                      </Carousel>
-                      <div className="card-body">
-                        <h5 className="card-title">SoccerStatistics</h5>
-                        <p className="card-text">
-                          Aplicación móvil para obtener las estadisticas
-                          deportivas de jugadores del futbol amateur, cuenta con
-                          su administracion web .
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-4 p-3">
-                    <div className="card h-100 ">
-                      <Carousel>
-                        <Carousel.Item>
-                          <img
-                            className="d-block w-100"
-                            src="holder.js/800x400?text=First slide&bg=373940"
-                            alt="First slide"
-                          />
-                          <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>
-                              Nulla vitae elit libero, a pharetra augue mollis
-                              interdum.
-                            </p>
-                          </Carousel.Caption>
-                        </Carousel.Item>
-                      </Carousel>
-                      <div className="card-body">
-                        <h5 className="card-title">Clon Instagram</h5>
-                        <p className="card-text">
-                          Aplicación móvil para obtener las estadisticas
-                          deportivas de jugadores del futbol amateur, cuenta con
-                          su administracion web .
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-4 p-3">
-                    <div className="card h-100 ">
-                      <Carousel>
-                        <Carousel.Item>
-                          <img
-                            className="d-block w-100"
-                            src="holder.js/800x400?text=First slide&bg=373940"
-                            alt="First slide"
-                          />
-                          <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>
-                              Nulla vitae elit libero, a pharetra augue mollis
-                              interdum.
-                            </p>
-                          </Carousel.Caption>
-                        </Carousel.Item>
-                      </Carousel>
-                      <div className="card-body">
-                        <h5 className="card-title">
-                          Administración ferreteria
-                        </h5>
-                        <p className="card-text">
-                          Aplicación móvil para obtener las estadisticas
-                          deportivas de jugadores del futbol amateur, cuenta con
-                          su administracion web .
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-4 p-3">
-                    <div className="card h-100 ">
-                      <Carousel>
-                        <Carousel.Item>
-                          <img
-                            className="d-block w-100"
-                            src="holder.js/800x400?text=First slide&bg=373940"
-                            alt="First slide"
-                          />
-                          <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>
-                              Nulla vitae elit libero, a pharetra augue mollis
-                              interdum.
-                            </p>
-                          </Carousel.Caption>
-                        </Carousel.Item>
-                      </Carousel>
-                      <div className="card-body">
-                        <h5 className="card-title">SoccerStatistics</h5>
-                        <p className="card-text">
-                          Aplicación móvil para obtener las estadisticas
-                          deportivas de jugadores del futbol amateur, cuenta con
-                          su administracion web .
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                    );
+                  })}
+               
                 </div>
               </div>
             </section>
@@ -386,11 +248,14 @@ function App() {
               style={{
                 width: "100%",
                 textAlign: "center",
-                paddingTop: "4%",
+                paddingBlock: "3%",
                 paddingInline: "7%",
               }}
             >
-              <h3 style={{ color: "#000", paddingBlock: 20 }}>Mis trabajos</h3>
+              <h6 style={{ color: "#e3e4e5" }}>
+                Diseño y Desarrollo | Quijano Carlos
+              </h6>
+              <h6 style={{ color: "#e3e4e5" }}>Actualizado Nov 2021</h6>
               <div className="container-fluid content-row"></div>
             </section>
           </div>
