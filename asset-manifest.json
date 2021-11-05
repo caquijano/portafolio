@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/portafolio/static/css/main.dedaa9c2.chunk.css",
-    "main.js": "/portafolio/static/js/main.82de9bef.chunk.js",
-    "main.js.map": "/portafolio/static/js/main.82de9bef.chunk.js.map",
+    "main.js": "/portafolio/static/js/main.78f24502.chunk.js",
+    "main.js.map": "/portafolio/static/js/main.78f24502.chunk.js.map",
     "runtime-main.js": "/portafolio/static/js/runtime-main.9279f779.js",
     "runtime-main.js.map": "/portafolio/static/js/runtime-main.9279f779.js.map",
     "static/css/2.ecce1f64.chunk.css": "/portafolio/static/css/2.ecce1f64.chunk.css",
@@ -22,13 +22,14 @@
     "static/media/Avatar.974372a4.png": "/portafolio/static/media/Avatar.974372a4.png",
     "static/media/IMG_20190728_122614.8352c46e.jpg": "/portafolio/static/media/IMG_20190728_122614.8352c46e.jpg",
     "static/media/android.ace31034.png": "/portafolio/static/media/android.ace31034.png",
-    "static/media/backend.ebcec3e3.png": "/portafolio/static/media/backend.ebcec3e3.png"
+    "static/media/backend.ebcec3e3.png": "/portafolio/static/media/backend.ebcec3e3.png",
+    "static/media/desarrollo.301469c5.png": "/portafolio/static/media/desarrollo.301469c5.png"
   },
   "entrypoints": [
     "static/js/runtime-main.9279f779.js",
     "static/css/2.ecce1f64.chunk.css",
     "static/js/2.b7d3fed6.chunk.js",
     "static/css/main.dedaa9c2.chunk.css",
-    "static/js/main.82de9bef.chunk.js"
+    "static/js/main.78f24502.chunk.js"
   ]
 }
