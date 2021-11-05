@@ -4,23 +4,17 @@ import Navbar from "./components/Navbar";
 import { Image, Carousel } from "react-bootstrap";
 import Background from "./components/images/IMG_20190728_122614.jpg";
 import Avatar from "./components/images/Avatar.png";
-import android from "./components/images/icons/android.png";
-import backend from "./components/images/icons/backend.png";
-import frontend from "./components/images/icons/frontend.png";
 import ScrollReaveal from "scrollreveal";
 import "./styles.css";
 
 import dataCarousel from "./DataProjects";
+import dataSkils from "./DataSkils";
 
 function App() {
-  //  const heightWindow = window.screen.height
-  //const widthWindow = window.screen.width
-  console.log(dataCarousel);
-
   useEffect(() => {
     const config = {
       origin: "down",
-      duration: 4000,
+      duration: 3000,
       delay: 750,
       distance: "0px",
       scale: 1,
@@ -88,7 +82,7 @@ function App() {
           <div
             style={{
               width: "100%",
-              backgroundColor: "#e8e8e8",
+              backgroundColor: "#bfbfbf",
               display: "flex",
             }}
           >
@@ -102,85 +96,40 @@ function App() {
                 </h3>
                 <div className="container-fluid content-row">
                   <div className="row">
-                    <div className="col-sm-4 p-3 reveal-1">
-                      <div className="card h-100">
-                        <div className="card-body">
-                          <Image
-                            src={frontend}
-                            style={{ width: 60, paddingBlock: 20 }}
-                          />
-                          <h5>Desarrollador Front-End</h5>
-                          <p className="card-text">
-                            Soy apasionado por la codificación y me gusta crear
-                            sitios web atractivos visualmente, intuitivos y
-                            usables.
-                          </p>
-                          <h5 className="card-title">Lenguajes:</h5>
-                          <p className="card-text">
-                            HTML, CSS, JavaScript, TypeScript React, NodeJs.
-                          </p>
-                          <h5 className="card-title">
-                            Herramientas de desarrollo:
-                          </h5>
-                          <p className="card-text">Bootstrap</p>
-                          <p className="card-text">Github</p>
-                          <p className="card-text">Gitlab</p>
-                          <p className="card-text">Heroku</p>
-                          <p className="card-text">Lottie</p>
+                    {dataSkils.map((item: any, index: number) => {
+                      return (
+                        <div className="col-sm-4 p-3 reveal-1" key={index} style={{borderRadius:20}}>
+                          <div className="card h-100" style={{borderRadius:20}}>
+                            <div className="card-body">
+                              <Image
+                                src={item.image}
+                                style={{ width: 60, paddingBlock: 20 }}
+                              />
+                              <h5>{item.title}</h5>
+                              <p className="card-text">
+                                {item.description}
+                              </p>
+                              <h5 className="card-title">Lenguajes:</h5>
+                              <p className="card-text">
+                                {item.lenguajes}
+                              </p>
+                              <h5 className="card-title">
+                                Herramientas de desarrollo:
+                              </h5>
+                              <>
+                              {
+                                item.herramientas.map((it:any, i:number)=>{
+                                  return(
+                                    <p className="card-text" key={i}>{it.herramienta}</p>
+                                  )
+                                } )
+                              }
+                              </>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div className="col-sm-4 p-3 reveal-1">
-                      <div className="card h-100">
-                        <div className="card-body">
-                          <Image
-                            src={backend}
-                            style={{ width: 60, paddingBlock: 20 }}
-                          />
-                          <h5>Desarrollador Back-End</h5>
-                          <p className="card-text">
-                            Desarrollo modulos para la interaccion y el
-                            procesamiento de peticiones que existen entre el
-                            usuario y el sitio web.
-                          </p>
-                          <h5 className="card-title">Lenguajes:</h5>
-                          <p className="card-text">
-                            JavaScript, TypeScript React, NodeJs.
-                          </p>
-                          <h5 className="card-title">
-                            Herramientas de desarrollo:
-                          </h5>
-                          <p className="card-text">Firebase</p>
-                          <p className="card-text">Graphql</p>
-                          <p className="card-text">MongoDb</p>
-                          <p className="card-text">MySql</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-sm-4 p-3 reveal-1">
-                      <div className="card h-100">
-                        <div className="card-body">
-                          <Image
-                            src={android}
-                            style={{ width: 60, paddingBlock: 20 }}
-                          />
-                          <h5>Desarrollador Movil</h5>
-                          <p className="card-text">
-                            Me gusta diseñar, programar y ejecutar sistemas para
-                            marcos mobiles, dando solución a las necesidades de
-                            los usuarios.
-                          </p>
-                          <h5 className="card-title">Lenguajes:</h5>
-                          <p className="card-text">React Native, TypeScript.</p>
-                          <h5 className="card-title">
-                            Herramientas de desarrollo:
-                          </h5>
-                          <p className="card-text">Lottie</p>
-                          <p className="card-text">React Native CLI</p>
-                          <p className="card-text">React Native Elements</p>
-                        </div>
-                      </div>
-                    </div>
+                      );
+                    })}
                   </div>
                 </div>
               </section>
@@ -189,7 +138,7 @@ function App() {
           <div
             style={{
               width: "100%",
-              backgroundColor: "#fff",
+              backgroundColor: "#e0e0e0",
               display: "flex",
             }}
           >
@@ -201,25 +150,33 @@ function App() {
                 paddingInline: "7%",
               }}
             >
-              <h3 style={{ color: "#000", paddingBlock: 20 }}>Mis trabajos</h3>
+              <h3 style={{ color: "#000", paddingBlock: 20 }} className="reveal-1">Mis trabajos</h3>
               <div className="container-fluid content-row">
                 <div className="row">
                   {dataCarousel.map((item: any, index: number) => {
                     return (
-                      <div className="col-sm-4 p-3" key={index}>
-                        <div className="card h-100 ">
-                          <Carousel>
+                      <div
+                        className="col-sm-4 p-3 reveal-1"
+                        key={index}
+                        style={{ borderRadius: 20 }}
+                      >
+                        <div
+                          className="card h-100 "
+                          style={{ borderRadius: 20 }}
+                        >
+                          <Carousel style={{ borderRadius: 20 }}>
                             {item.images.map((ima: any, i: number) => {
                               return (
                                 <Carousel.Item>
                                   <img
+                                    style={{
+                                      borderTopLeftRadius: 20,
+                                      borderTopRightRadius: 20,
+                                    }}
                                     className="d-block w-100"
                                     src={ima.image}
-                                    alt={`${ima.title}`}
                                   />
-                                  <Carousel.Caption>
-                                    <h3>{ima.title}</h3>
-                                  </Carousel.Caption>
+                                  <Carousel.Caption></Carousel.Caption>
                                 </Carousel.Item>
                               );
                             })}
@@ -232,7 +189,6 @@ function App() {
                       </div>
                     );
                   })}
-               
                 </div>
               </div>
             </section>

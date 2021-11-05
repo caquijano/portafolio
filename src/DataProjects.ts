@@ -4,6 +4,7 @@ import dos from "./images/playexplora/2.png";
 import tres from "./images/playexplora/3.png";
 import cuatro from "./images/playexplora/4.png";
 import cinco from "./images/playexplora/5.png";
+import desarrollo from "./images/soccerstatistics/desarrollo.png";
 
 const dataCarousel = [
     {
@@ -120,25 +121,10 @@ const dataCarousel = [
         "Aplicación móvil para obtener las estadisticas deportivas de jugadores del futbol amateur, cuenta con su administracion web . ",
       images: [
         {
-          title: "Inicio de sesión",
-          image: Uno,
+          title: "Estamos trabajando en ",
+          image: desarrollo,
         },
-        {
-          title: "Administración",
-          image: dos,
-        },
-        {
-          title: "Formularios",
-          image: tres,
-        },
-        {
-          title: "Peticiones DB",
-          image: cuatro,
-        },
-        {
-          title: " ",
-          image: cinco,
-        },
+        
       ],
     },
     {
