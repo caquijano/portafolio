@@ -15,7 +15,7 @@ function ModalCarousel(props: any) {
       </Modal.Header>
       <Modal.Body>
         <Carousel style={{ borderRadius: 20 }}>
-          {images.map((ima: any, i: number) => {
+          {images?.map((ima: any, i: number) => {
             return (
               <Carousel.Item>
                 <img
