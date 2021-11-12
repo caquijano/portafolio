@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "bootswatch/dist/lux/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import { Image, Carousel } from "react-bootstrap";
@@ -6,15 +6,32 @@ import Background from "./components/images/IMG_20190728_122614.jpg";
 import Avatar from "./components/images/Avatar.png";
 import ScrollReaveal from "scrollreveal";
 import "./styles.css";
+import {
+  SiReact,
+  SiTypescript,
+  SiFirebase,
+  SiMongodb,
+  SiBootstrap,
+  SiJavascript,
+} from "react-icons/si";
 
 import dataCarousel from "./DataProjects";
 import dataSkils from "./DataSkils";
+import ModalCarousel from "./components/ModalCarousel";
 
 function App() {
+  const [modalShow, setModalShow] = useState<any>(false);
+  const [data, setData] = useState<any>({});
+
+  const openModal = async (item: any) => {
+    setModalShow(true);
+    setData(item);
+  };
+
   useEffect(() => {
     const config = {
       origin: "down",
-      duration: 3000,
+      duration: 2000,
       delay: 750,
       distance: "0px",
       scale: 1,
@@ -63,18 +80,18 @@ function App() {
 
                 <h5 style={{ color: "#777" }} className="reveal-1">
                   Me desempeño como desarrollador Full-Stack tanto para web como
-                  android, a pesar de la corta experiencia, soy muy apasionado y
-                  realmente bueno en lo que hago, encuentro soluciones faciles,
+                  Android, a pesar de la corta experiencia, soy muy apasionado y
+                  realmente bueno en lo que hago, encuentro soluciones fáciles,
                   rapidas y usables a todo tipo de problemas, si deseas trabajar
                   conmigo no dudes en contactarme.
                 </h5>
                 <br />
                 <h5 style={{ color: "#777" }} className="reveal-1">
                   Cumplí con toda la malla curricular de la carrera profesional
-                  en ingenieria de sistemas, por algunas circuntacias aún no
-                  cuento con mi titulación, pero sigo en aprendizaje continuo, a
-                  demas de codificar, puedo trabajar en cualquier fase del ciclo
-                  de vida del desarrollo de software.
+                  en ingeniería de sistemas, y me encuentro próximo a recibir la
+                  titulación, igualmente sigo en aprendizaje continuo.Debido a
+                  mis estudios, además de codificar, puedo trabajar en cualquier
+                  fase del ciclo de vida del desarrollo de software.
                 </h5>
               </section>
             </div>
@@ -98,32 +115,35 @@ function App() {
                   <div className="row">
                     {dataSkils.map((item: any, index: number) => {
                       return (
-                        <div className="col-sm-4 p-3 reveal-1" key={index} style={{borderRadius:20}}>
-                          <div className="card h-100" style={{borderRadius:20}}>
+                        <div
+                          className="col-sm-4 p-3 reveal-1"
+                          key={index}
+                          style={{ borderRadius: 20 }}
+                        >
+                          <div
+                            className="card h-100"
+                            style={{ borderRadius: 20 }}
+                          >
                             <div className="card-body">
                               <Image
                                 src={item.image}
                                 style={{ width: 60, paddingBlock: 20 }}
                               />
                               <h5>{item.title}</h5>
-                              <p className="card-text">
-                                {item.description}
-                              </p>
+                              <p className="card-text">{item.description}</p>
                               <h5 className="card-title">Lenguajes:</h5>
-                              <p className="card-text">
-                                {item.lenguajes}
-                              </p>
+                              <p className="card-text">{item.lenguajes}</p>
                               <h5 className="card-title">
                                 Herramientas de desarrollo:
                               </h5>
                               <>
-                              {
-                                item.herramientas.map((it:any, i:number)=>{
-                                  return(
-                                    <p className="card-text" key={i}>{it.herramienta}</p>
-                                  )
-                                } )
-                              }
+                                {item.herramientas.map((it: any, i: number) => {
+                                  return (
+                                    <p className="card-text" key={i}>
+                                      {it.herramienta}
+                                    </p>
+                                  );
+                                })}
                               </>
                             </div>
                           </div>
@@ -150,12 +170,18 @@ function App() {
                 paddingInline: "7%",
               }}
             >
-              <h3 style={{ color: "#000", paddingBlock: 20 }} className="reveal-1">Mis trabajos</h3>
+              <h3
+                style={{ color: "#000", paddingBlock: 20 }}
+                className="reveal-1"
+              >
+                Mis trabajos
+              </h3>
               <div className="container-fluid content-row">
                 <div className="row">
                   {dataCarousel.map((item: any, index: number) => {
                     return (
                       <div
+                        onClick={() => openModal(item)}
                         className="col-sm-4 p-3 reveal-1"
                         key={index}
                         style={{ borderRadius: 20 }}
@@ -172,11 +198,18 @@ function App() {
                                     style={{
                                       borderTopLeftRadius: 20,
                                       borderTopRightRadius: 20,
+                                      cursor: "zoom-in",
                                     }}
                                     className="d-block w-100"
-                                    src={ima.image}
+                                    src={ima}
                                   />
-                                  <Carousel.Caption></Carousel.Caption>
+                                  <Carousel.Caption
+                                    color="#000"
+                                    style={{
+                                      backgroundColor: "rgba(0,0,0,0.4)",
+                                      height: 10,
+                                    }}
+                                  />
                                 </Carousel.Item>
                               );
                             })}
@@ -190,6 +223,18 @@ function App() {
                     );
                   })}
                 </div>
+              </div>
+              <div>
+                <h6>
+                  Cada proyecto fue desarrollado con varios de los siguiente
+                  lenguajes y tecnologías:{" "}
+                </h6>{" "}
+                <SiReact style={{ fontSize: 25, marginInline: 5 }} />{" "}
+                <SiJavascript style={{ fontSize: 25, marginInline: 5 }} />{" "}
+                <SiTypescript style={{ fontSize: 25, marginInline: 5 }} />{" "}
+                <SiBootstrap style={{ fontSize: 25, marginInline: 5 }} />{" "}
+                <SiFirebase style={{ fontSize: 25, marginInline: 5 }} />{" "}
+                <SiMongodb style={{ fontSize: 25, marginInline: 5 }} />
               </div>
             </section>
           </div>
@@ -217,6 +262,11 @@ function App() {
           </div>
         </div>
       </div>
+      <ModalCarousel
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        data={data}
+      />
     </div>
   );
 }
