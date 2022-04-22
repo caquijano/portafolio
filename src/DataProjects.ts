@@ -1,5 +1,10 @@
 import React from "react";
 
+
+import tuno from "./images/tienda/1.png";
+import tdos from "./images/tienda/2.png";
+import ttres from "./images/tienda/3.png";
+import tcuatro from "./images/tienda/4.png";
 import pewuno from "./images/playexplora/1.png";
 import pewdos from "./images/playexplora/2.png";
 import pewtres from "./images/playexplora/3.png";
@@ -73,10 +78,10 @@ import sap22 from "./images/syntheticapp/22.png"
 
 const dataCarousel = [
   {
-    title: "SoccerStatistics (En Desarrollo)",
+    title: "Consumo de API (tienda virtual)",
     description:
-      "Aplicación móvil para obtener las estadísticas deportivas de jugadores del futbol amateur, cuenta con su administración web. ",
-    images: [desarrollo],
+      "Pagina web donde se consume una api de articulos de una tienda virtual. ",
+    images: [tuno, tdos, ttres, tcuatro],
   },
     {
       title: "Play Explora Web",
