@@ -80,7 +80,7 @@ const dataCarousel = [
   {
     title: "Consumo de API (tienda virtual)",
     description:
-      "Pagina web donde se consume una api de articulos de una tienda virtual. ",
+      "Pagina web donde se consume una api de articulos de una tienda virtual.",
     images: [tuno, tdos, ttres, tcuatro],
   },
     {
